@@ -25,7 +25,7 @@ module DocxTemplater
                    .get_input_stream
                    .read
       document.force_encoding(Encoding::UTF_8) if document.respond_to?(:force_encoding)
-      [document.scan(/\$([A-Z]+_\d+)\$/), document.scan(/\$([A-Z]+_[A-Z]+_\d+)\$/)].flatten
+      document.scan(/\$([A-Z_\d+]+)\$/).flatten
     end
 
     private
